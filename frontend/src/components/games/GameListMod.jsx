@@ -24,7 +24,7 @@ const GameListMod = () => {
   const deleteCurrentGame = (id) => {
     const confirmation = window.confirm("Voulez-vous vraiment supprimer ce jeu ?");
     if (confirmation) {
-      axios.delete(`http://localhost:5000/game/all-games"/${id}`).then((res) => {
+      axios.delete(`http://localhost:5000/game/delete-game/${id}`).then((res) => {
         console.log(res.data);
       });
     }
