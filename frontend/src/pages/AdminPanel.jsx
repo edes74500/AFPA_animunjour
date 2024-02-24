@@ -1,7 +1,7 @@
 import React from "react";
-import NewGameForm from "../components/NewGameForm";
-import GameListMod from "../components/GameListMod";
-import GameEditForm from "../components/GameEditForm";
+// import NewGameForm from "../components/games/NewGameForm";
+import GameListMod from "../components/games/GameListMod";
+// import GameEditForm from "../components/games/GameEditForm";
 
 const AdminPanel = () => {
   return (

@@ -8,6 +8,7 @@ const GameListMod = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showNewGameModal, setShowNewGameModal] = useState(false);
   const [editGameId, setEditGameId] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     axios.get("http://localhost:5000/game/all-games").then((res) => {
@@ -23,7 +24,7 @@ const GameListMod = () => {
   const deleteCurrentGame = (id) => {
     const confirmation = window.confirm("Voulez-vous vraiment supprimer ce jeu ?");
     if (confirmation) {
-      axios.delete(`/game/all-games"/${id}`).then((res) => {
+      axios.delete(`http://localhost:5000/game/all-games"/${id}`).then((res) => {
         console.log(res.data);
       });
     }
@@ -42,27 +43,33 @@ const GameListMod = () => {
 
   return (
     <div>
-      <h1>Liste des jeux actuels :</h1>
-      <input type="button" value="add a new game" onClick={addNewGame} />
-      {allGames.length > 0 &&
-        allGames.map((game) => (
-          <div key={game._id}>
-            <h3>{game.name}</h3>
-            <p>{game.description}</p>
-            <span onClick={() => deleteCurrentGame(game._id)}>delete</span>
-            <span onClick={() => editCurrentGame(game._id)}>edeit</span>
-          </div>
-        ))}
-      {showEditModal && (
-        <div className="modal">
-          <GameEditForm id={editGameId} setShowEditModal={setShowEditModal} />
-        </div>
-      )}
+      {/* {showEditModal && (
+       
+      )} */}
       {showNewGameModal && (
         <div className="modal">
           <NewGameForm setShowNewGameModal={setShowNewGameModal} />
         </div>
       )}
+      <h1>Liste des jeux actuels :</h1>
+      <input type="button" value="add a new game" onClick={addNewGame} />
+      {allGames.length > 0 &&
+        allGames.map((game) => (
+          <div key={game._id}>
+            {!showEditModal || editGameId !== game._id ? (
+              <>
+                <h3>{game.name}</h3>
+                <p>{game.description}</p>
+                <span onClick={() => deleteCurrentGame(game._id)}>delete</span>
+                <span onClick={() => editCurrentGame(game._id)}>edit</span>
+              </>
+            ) : (
+              <div className="modal">
+                <GameEditForm id={editGameId} setShowEditModal={setShowEditModal} />
+              </div>
+            )}
+          </div>
+        ))}
     </div>
   );
 };
