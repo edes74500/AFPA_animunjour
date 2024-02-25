@@ -10,7 +10,7 @@ const GameListMod = () => {
   const [editGameId, setEditGameId] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/games/all-games").then((res) => {
+    axios.get(`${import.meta.env.VITE_API_URL}/games/all-games`).then((res) => {
       setAllGames(res.data);
     });
   }, []);
@@ -23,7 +23,7 @@ const GameListMod = () => {
   const deleteCurrentGame = (id) => {
     const confirmation = window.confirm("Voulez-vous vraiment supprimer ce jeu ?");
     if (confirmation) {
-      axios.delete(`http://localhost:5000/games/delete-game/${id}`).then((res) => {
+      axios.delete(`${import.meta.env.VITE_API_URL}/games/delete-game/${id}`).then((res) => {
         console.log(res.data);
       });
     }
