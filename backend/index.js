@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(cors({ origin: "https://main--animunjour.netlify.app/" }));
+app.use(cors({ origin: "https://main--animunjour.netlify.app" }));
 
 //connext to db
 connectDB();
