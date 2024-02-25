@@ -7,7 +7,7 @@ const GameEditForm = ({ id, setShowEditModal }) => {
   const [loading, setLoading] = useState(true); // État pour suivre le chargement des données
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/game/get-game/${id}`).then((res) => {
+    axios.get(`http://localhost:5000/games/get-game/${id}`).then((res) => {
       setCurrentGame(res.data);
       setLoading(false);
     });
@@ -34,7 +34,7 @@ const GameEditForm = ({ id, setShowEditModal }) => {
       }
     }
     axios
-      .put(`http://localhost:5000/game/update-game/${id}`, formData)
+      .put(`http://localhost:5000/games/update-game/${id}`, formData)
       .then((response) => {
         console.log(response);
         // Gérer la réponse de la requête

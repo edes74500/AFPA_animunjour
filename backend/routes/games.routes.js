@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { setGame, getAllGames, deleteGame, updateGame, getGame } = require("../controllers/game.controller");
+const { setGame, getAllGames, deleteGame, updateGame, getGame } = require("../controllers/games.controller");
 
 router.post("/new-game", setGame);
 router.get("/get-game/:id", getGame);

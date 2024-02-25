@@ -25,7 +25,7 @@ const NewGameForm = ({ setShowNewGameModal }) => {
       }
     }
     axios
-      .post("http://localhost:5000/game/new-game", formData)
+      .post("http://localhost:5000/games/new-game", formData)
       .then((response) => {
         console.log(response);
         // Gérer la réponse de la requête

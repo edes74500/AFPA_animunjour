@@ -17,6 +17,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/post", require("./routes/post.routes"));
-app.use("/game", require("./routes/game.routes"));
+app.use("/games", require("./routes/games.routes"));
 //start server
 app.listen(port, () => console.log(`Server starting on port ${port}`));

@@ -8,10 +8,35 @@ import { createGlobalStyle } from "styled-components";
 import { styles } from "./styles/styles";
 
 const GlobalStyles = createGlobalStyle`
-${styles}  `;
+${styles}`;
+
+import rootReducer from "../reducers";
+import { Provider, useDispatch } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { useEffect } from "react";
+import { fetchGamesList } from "../actions/games.action";
+
+const AppWrapper = () => {
+  const store = configureStore({
+    reducer: rootReducer,
+    devTools: true,
+  });
+
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+};
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGamesList());
+  }, [dispatch]);
   return (
+    // <Provider store={store}>
     <BrowserRouter>
       <GlobalStyles />
       <Navbar />
@@ -21,7 +46,8 @@ function App() {
         <Route path="/admin" element={<AdminPanel />} />
       </Routes>
     </BrowserRouter>
+    // </Provider>
   );
 }
 
-export default App;
+export default AppWrapper;

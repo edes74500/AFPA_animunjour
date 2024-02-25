@@ -1,19 +1,8 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Jeux = () => {
-  const [allGames, setAllGames] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/game/all-games").then((res) => {
-      setAllGames(res.data);
-    });
-  }, []);
-
-  useEffect(() => {
-    console.log(allGames);
-    console.log(allGames.length);
-  }, [allGames]);
+  const allGames = useSelector((state) => state.games);
 
   return (
     <div>
@@ -32,4 +21,3 @@ const Jeux = () => {
 };
 
 export default Jeux;
-<h1>Jeux</h1>;

@@ -8,23 +8,22 @@ const GameListMod = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showNewGameModal, setShowNewGameModal] = useState(false);
   const [editGameId, setEditGameId] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/game/all-games").then((res) => {
+    axios.get("http://localhost:5000/games/all-games").then((res) => {
       setAllGames(res.data);
     });
   }, []);
 
-  useEffect(() => {
-    console.log(allGames);
-    console.log(allGames.length);
-  }, [allGames]);
+  // useEffect(() => {
+  //   console.log(allGames);
+  //   console.log(allGames.length);
+  // }, [allGames]);
 
   const deleteCurrentGame = (id) => {
     const confirmation = window.confirm("Voulez-vous vraiment supprimer ce jeu ?");
     if (confirmation) {
-      axios.delete(`http://localhost:5000/game/delete-game/${id}`).then((res) => {
+      axios.delete(`http://localhost:5000/games/delete-game/${id}`).then((res) => {
         console.log(res.data);
       });
     }
