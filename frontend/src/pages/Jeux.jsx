@@ -10,7 +10,7 @@ const Jeux = () => {
       {allGames.length > 0 &&
         allGames.map((game) => {
           return (
-            <div className="card" key={game._id}>
+            <div className="card single-game" key={game._id}>
               <h2>{game.name}</h2>
               <p>{game.description}</p>
             </div>
