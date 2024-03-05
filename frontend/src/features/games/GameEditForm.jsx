@@ -1,21 +1,18 @@
 import axios from "axios";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const GameEditForm = ({ id, setShowEditModal }) => {
   const formRef = React.useRef();
   const [currentGame, setCurrentGame] = useState({});
-  const [loading, setLoading] = useState(true); // État pour suivre le chargement des données
+  const [loading, setLoading] = useState(true);
+  const errorDivRef = useRef(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/games/get-game/${id}`).then((res) => {
+    axios.get(`http://localhost:5000/api/games/get-game/${id}`, { withCredentials: true }).then((res) => {
       setCurrentGame(res.data);
       setLoading(false);
     });
   }, []);
-
-  useEffect(() => {
-    console.log(currentGame);
-  }, [currentGame]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -34,17 +31,17 @@ const GameEditForm = ({ id, setShowEditModal }) => {
       }
     }
     axios
-      .put(`http://localhost:5000/games/update-game/${id}`, formData)
+      .put(`http://localhost:5000/api/games/update-game/${id}`, formData, { withCredentials: true })
       .then((response) => {
         console.log(response);
-        // Gérer la réponse de la requête
+        setShowEditModal(false);
       })
       .catch((error) => {
-        console.log(error.response.data.message);
+        errorDivRef.current.textContent = error.response.data.error;
+        console.log(error.response.data);
         console.log(error);
+        // console.log(error);
       });
-    console.log(formData);
-    setShowEditModal(false);
   };
 
   const cancelEditGame = () => {
@@ -61,7 +58,7 @@ const GameEditForm = ({ id, setShowEditModal }) => {
             <input type="text" className="form-control" id="name" name="name" defaultValue={currentGame.name} />
           </div>
           <div className="form-group">
-            <label htmlFor="age">Age</label>
+            <span>Age</span>
 
             <div className="form-control" id="age">
               <input type="text" name="startAge" placeholder="Age début" defaultValue={currentGame.age.startAge} />
@@ -87,6 +84,7 @@ const GameEditForm = ({ id, setShowEditModal }) => {
             <input type="file" className="form-control" id="image" name="image" />
           </div>
 
+          <div className="error" ref={errorDivRef}></div>
           <div>
             <input type="submit" />
             <input type="button" value="cancel" onClick={cancelEditGame} />

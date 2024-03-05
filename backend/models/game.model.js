@@ -35,16 +35,32 @@ const gameSchema = new mongoose.Schema(
           required: true,
         },
       },
+      _id: false, // Définir la valeur par défaut de age._id à null
     },
     comments: {
-      type: [String],
+      type: [
+        {
+          date: {
+            type: Date,
+            default: Date.now,
+          },
+          text: {
+            type: String,
+            required: true,
+          },
+          author: {
+            type: String,
+            required: true,
+          },
+        },
+      ],
     },
     playersNumber: {
       type: String,
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const collectionName = generateCollectionName(gameSchema);

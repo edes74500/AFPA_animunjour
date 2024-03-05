@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import NavLogin from "./NavLogin";
+import NavLogin from "../../features/login/NavLogin";
 
 const StyledNavbar = styled.nav`
   display: flex;

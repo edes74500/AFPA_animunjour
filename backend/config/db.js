@@ -4,10 +4,7 @@ require("dotenv").config(); // Assurez-vous que votre fichier .env contient la v
 const connectDB = async () => {
   try {
     // Ajoutez l'appel à mongoose.connect ici
-    await mongoose.connect(process.env.MONGO_URI, {
-      // useNewUrlParser: true,
-      // useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGO_URI);
     console.log(`MongoDB Connected...`); // Ce message sera affiché une fois la connexion établie avec succès
   } catch (err) {
     console.error("Error connecting to MongoDB:", err);

@@ -1,41 +1,46 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { addGame } from "./games.slice";
 
 const NewGameForm = ({ setShowNewGameModal }) => {
   const formRef = React.useRef();
-
-  useEffect(() => {
-    // console.log(formRef.current);
-  }, [formRef]);
+  const dispatch = useDispatch();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(formRef.current);
     const formData = {};
     const elements = formRef.current.elements;
+    let isFormValid = true;
+
     const age = {
       startAge: e.target.elements.startAge.value,
       endAge: e.target.elements.endAge.value,
     };
     formData.age = age;
+
+    if (!age.startAge || !age.endAge) {
+      isFormValid = false;
+      alert("Les champs d'âge sont requis.");
+    }
+
     for (let i = 0; i < elements.length; i++) {
       const element = elements[i];
+      if (element.id && !element.value && element.type !== "file") {
+        isFormValid = false;
+        alert(`Le champ ${element.name} est requis.`);
+        break;
+      }
+
       if (element.id) {
         formData[element.name] = element.value;
       }
     }
-    axios
-      .post("http://localhost:5000/games/new-game", formData)
-      .then((response) => {
-        console.log(response);
-        // Gérer la réponse de la requête
-      })
-      .catch((error) => {
-        console.log(error.response.data.message);
-        console.log(error);
-      });
-    console.log(formData);
-    setShowNewGameModal(false);
+    if (isFormValid) {
+      dispatch(addGame(formData));
+      setShowNewGameModal(false);
+    } else {
+      console.log("Le formulaire est incomplet.");
+    }
   };
 
   const cancelNewGame = () => {
@@ -43,7 +48,7 @@ const NewGameForm = ({ setShowNewGameModal }) => {
   };
 
   return (
-    <div>
+    <div className="newGameForm">
       <h1>New Game Form</h1>
       <form ref={formRef} onSubmit={handleFormSubmit}>
         <div className="form-group">
@@ -51,25 +56,24 @@ const NewGameForm = ({ setShowNewGameModal }) => {
           <input type="text" className="form-control" id="name" name="name" placeholder="Name" />
         </div>
         <div className="form-group">
-          <label htmlFor="age">Age</label>
-
+          <span>Age</span>
           <div className="form-control" id="age">
-            <input type="text" name="startAge" placeholder="Age début" />
+            <input type="number" name="startAge" placeholder="Age début" />
             {" à "}
-            <input type="text" name="endAge" placeholder="Age fin" />
+            <input type="number" name="endAge" placeholder="Age fin" />
           </div>
         </div>
         <div className="form-group">
           <label htmlFor="duration">Duree en mn</label>
-          <input type="text" id="duration" name="duration" />
+          <input type="number" id="duration" name="duration" />
         </div>
         <div className="form-group">
           <label htmlFor="playersNumber">Nombre de joueurs</label>
-          <input type="text" id="playersNumber" name="playersNumber" />
+          <input type="number" id="playersNumber" name="playersNumber" />
         </div>
         <div className="form-group">
           <label htmlFor="description">Regle du jeu</label>
-          <textarea id="description" name="description"></textarea>
+          <textarea id="description" required={true} name="description"></textarea>
         </div>
 
         <div className="form-group">
