@@ -4,16 +4,29 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="20" y="220" width="80" height="80" as="geometry" />
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-1" value="&lt;div&gt;organizations&lt;/div&gt;&lt;div&gt;--------------&lt;/div&gt;&lt;div&gt;_id (ObjectId)&lt;/div&gt;&lt;div&gt;name (string)&lt;/div&gt;&lt;div&gt;owner (ObjectId)&lt;/div&gt;&lt;div&gt;members (array)&lt;/div&gt;&lt;div&gt;roles (array)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="20" y="220" width="140" height="140" as="geometry" />
         </mxCell>
         <mxCell id="XXbTEJKLa-23aaEHA9QX-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XXbTEJKLa-23aaEHA9QX-2">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="120" y="260" as="targetPoint" />
+            <mxPoint x="180" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="210" y="300" />
+              <mxPoint x="210" y="300" />
+            </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-2" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="345" y="220" width="80" height="80" as="geometry" />
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-2" value="users&lt;br/&gt;---------&lt;br/&gt;_id (ObjectId)&lt;br/&gt;name (string)&lt;br/&gt;email (string)&lt;br/&gt;password (string)&lt;br/&gt;organizations (array)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="345" y="220" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-4" value="posts&#xa;-----&#xa;_id (ObjectId)&#xa;title (string)&#xa;content (string)&#xa;organizationId (ObjectId)&#xa;author (ObjectId)&#xa;createdAt (Date)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="345" y="490" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-5" value="xa" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="345" y="50" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-6" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="640" y="220" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
