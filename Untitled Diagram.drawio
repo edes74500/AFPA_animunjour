@@ -4,10 +4,10 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-1" value="&lt;div&gt;organizations&lt;/div&gt;&lt;div&gt;--------------&lt;/div&gt;&lt;div&gt;_id (ObjectId)&lt;/div&gt;&lt;div&gt;name (string)&lt;/div&gt;&lt;div&gt;owner (ObjectId)&lt;/div&gt;&lt;div&gt;members (array)&lt;/div&gt;&lt;div&gt;roles (array)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-1" value="&lt;div&gt;organizations&lt;/div&gt;&lt;div&gt;--------------&lt;/div&gt;&lt;div&gt;_id (ObjectId)&lt;/div&gt;&lt;div&gt;name (string)&lt;/div&gt;&lt;div&gt;owner (ObjectId)&lt;/div&gt;&lt;div&gt;members (array)&lt;/div&gt;&lt;div&gt;roles (array)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="-420" y="220" width="180" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XXbTEJKLa-23aaEHA9QX-2">
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="XXbTEJKLa-23aaEHA9QX-2" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="180" y="300" as="targetPoint" />
             <Array as="points">
@@ -16,28 +16,37 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-2" value="users&lt;br/&gt;---------&lt;br/&gt;_id (ObjectId)&lt;br/&gt;name (string)&lt;br/&gt;email (string)&lt;br/&gt;password (string)&lt;br/&gt;organizations (array)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="345" y="220" width="160" height="160" as="geometry" />
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-2" value="users&lt;br/&gt;---------&lt;br/&gt;_id (ObjectId)&lt;br/&gt;name (string)&lt;br/&gt;email (string)&lt;br/&gt;password (string)&lt;br/&gt;organizations (array)" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="305" y="210" width="160" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-4" value="posts&#xa;-----&#xa;_id (ObjectId)&#xa;title (string)&#xa;content (string)&#xa;organizationId (ObjectId)&#xa;author (ObjectId)&#xa;createdAt (Date)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="355" y="500" width="150" height="150" as="geometry" />
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-4" value="posts&#xa;-----&#xa;_id (ObjectId)&#xa;title (string)&#xa;content (string)&#xa;organizationId (ObjectId)&#xa;author (ObjectId)&#xa;createdAt (Date)" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="315" y="610" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-5" value="xa" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-5" value="RERESH TOKEN&lt;div&gt;-----------&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="345" y="50" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-6" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-6" value="CV" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="640" y="220" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-7" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="390" y="550" width="60" height="30" as="geometry" />
+        <mxCell id="l1y2Q4vNHHVEVlwGnzql-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="XXbTEJKLa-23aaEHA9QX-7" target="XXbTEJKLa-23aaEHA9QX-4">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-8" value="un utilisatteur peut creer une oragnistaion" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-7" value="un user peut creer un post" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="345" y="410" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-8" value="un utilisatteur peut creer une oragnistaion" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-70" y="295" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="XXbTEJKLa-23aaEHA9QX-9" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+        <mxCell id="XXbTEJKLa-23aaEHA9QX-9" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="-120" y="300" as="sourcePoint" />
             <mxPoint x="-200" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l1y2Q4vNHHVEVlwGnzql-3" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="490" y="310" as="sourcePoint" />
+            <mxPoint x="620" y="270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
